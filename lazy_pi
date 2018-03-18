@@ -12,10 +12,9 @@
 
 ## Configure
 
-if [ "$xf0_installer" != true ]; then
-  pi_dir="/opt/pihole"
-  pi_webdir="/var/www/xf0/pihole"
-fi
+pi_dir="/opt/pihole"
+pi_webdir="/var/www/xf0/pihole"
+
 
 ##### DO NOT EDIT BELOW THIS LINE  ####
 
@@ -208,9 +207,7 @@ pi_end() {
 main() {
   cmdline $string
   pi_info
-  if [ "$xf0_installer" != true ]; then
-    pi_start
-  fi
+  pi_start
   pi_status
   if [ "$pi_installed" = false ] && [ "$pi_do" = sys ]; then
     pi_install
@@ -224,9 +221,7 @@ main() {
     echo -ne "Checking Pi-hole Status: [${red}not installed${nc}] >> ${blue}can't update list${nc} <<\r"
     echo -ne '\n'
   fi
-  if [ "$xf0_installer" != true ]; then
-    pi_end
-  fi
+  pi_end
 }
 
 main
